@@ -1,4 +1,5 @@
 const _ = {
+    //NUMBER METHODS
     //clamp modifies the provided number to be within the two provided bounds
     clamp(number, lower, upper) {
         const lowerClampedValue = Math.max(number, lower);
@@ -17,7 +18,7 @@ const _ = {
             end = start;
             start = temp;
         }
-        const isInRange = start <= number && number < end;
+        const isInRange = start <= number && number < end
         return isInRange;
     },
     //STRING METHODS 
@@ -63,6 +64,32 @@ const _ = {
             }
         }
         return undefined;
+    },
+    drop(array, n) {
+        if (n === undefined) {
+            n = 1;
+        }
+        let droppedArray = array.slice(n, array.length);
+        return droppedArray;
+    },
+    //ARRAY METHODS
+    dropWhile(array, predicate) {
+
+        const cb = (element, index) => {
+            return !predicate(element, index, array)
+        }
+        let dropNumber = array.findIndex(cb);
+        let droppedArray = this.drop(array, dropNumber);
+        return droppedArray;
+    },
+    //Creates an array of elements split into groups the length of size. If array can't be split evenly, the final chunk will be the remaining elements.
+    chunk(array, size = 1) {
+        let arrayChunks = [];
+        for (let i = 0; i < array.length; i += size) {
+            let arrayChunk = array.slice(i, i + size);
+            arrayChunks.push(arrayChunk);
+        }
+        return arrayChunks;
     }
 };
 
