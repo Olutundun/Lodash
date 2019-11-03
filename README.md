@@ -3,3 +3,14 @@ This project implements some of the most exciting functionality from the widely-
 
 # Instructions
 In your console, navigate to the directory and run node test/*method name*.js
+
+## 'Pad.js' functionality
+![pad image](pad.JPG)
+
+## 'Clamp.js' functionality
+![clamp image](clamp.JPG)
+
+## 'Chunk.js' functionality
+![chunk image](chunk.JPG)
+
+
