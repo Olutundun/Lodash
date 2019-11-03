@@ -35,6 +35,34 @@ const _ = {
         const endPaddingLength = length - string.length - startPaddingLength;
         const paddedString = ' '.repeat(startPaddingLength) + string + ' '.repeat(endPaddingLength);
         return paddedString;
+    },
+    //OBJECT METHODS
+    //.has checks to see if the provided object contains a value at the specified key
+    has(object, key) {
+        let hasValue = object[key];
+        (hasValue != undefined) ? hasValue = true: hasValue = false;
+        return hasValue;
+    },
+    //invert iterates through each key / value pair in the provided object and swaps the key and value
+    invert(object) {
+        let invertedObject = {};
+        for (let key in object) {
+            const originalValue = object[key];
+            invertedObject = {
+                originalValue: key
+            };
+        }
+        return invertedObject;
+    },
+    findKey(object, predicate) {
+        for (key in object) {
+            let value = object[key];
+            const predicateReturnValue = predicate(value);
+            if (predicateReturnValue == true) {
+                return key;
+            }
+        }
+        return undefined;
     }
 };
 
